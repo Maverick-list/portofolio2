@@ -4,154 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Programming Project 2</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="cursor-glow"></div>
-    <div class="bg-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-    </div>
 
-    <div class="app-container">
-        <!-- Sidebar Navigation -->
-        <nav class="sidebar">
-            <div class="logo">Project 2</div>
-            <ul class="nav-links">
-                <li class="active" data-target="registration-section">Registration</li>
-                <li data-target="login-section">Login</li>
-                <li data-target="forgot-password-section">Forgot Password</li>
-                <li data-target="contact-section">Contact Us</li>
-                <li data-target="purchasing-section">Purchasing</li>
+    <nav class="navbar">
+        <div class="logo">Our Portofolio</div>
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="../Project2_WebProgramming/index.html#login" target="_blank">Login</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-            </ul>
-        </nav>
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Create. <span class="highlight">Innovate.</span> Inspire.</h1>
+            <p class="subtitle">We build interactive web experiences.</p>
+            <a href="#projects" class="btn-glow">View Our Work</a>
 
-        <!-- Main Content Area -->
-        <main class="content-area">
+        </div>
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+    </header>
 
-            <!-- 1. Registration Section -->
-            <section id="registration-section" class="form-section active">
-                <h2>User Registration</h2>
-                <form id="registration-form">
-                    <div class="form-group">
-                        <label for="reg-name">Full Name</label>
-                        <input type="text" id="reg-name" required placeholder="John Doe">
+    <section id="about" class="section">
+        <div class="container reveal">
+            <h2>About Us</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Hello! We're a passionate Full Stack Developer with a knack for building beautiful, responsive,
+                        and
+                        functional web applications.</p>
+                    <p>We specialize in modern JavaScript frameworks, clean UI/UX design, and creating seamless digital
+                        experiences.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h3>5+</h3>
+                        <p>Projects</p>
                     </div>
-                    <div class="form-group">
-                        <label for="reg-email">Email Address</label>
-                        <input type="email" id="reg-email" required placeholder="john@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-password">Password</label>
-                        <input type="password" id="reg-password" required placeholder="Min 8 chars">
-                        <span id="password-strength" class="hint"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-confirm">Confirm Password</label>
-                        <input type="password" id="reg-confirm" required>
-                    </div>
-                    <button type="submit" class="btn primary">Register Account</button>
-                    <div class="form-message"></div>
-                </form>
-            </section>
-
-            <!-- 2. Login Section -->
-            <section id="login-section" class="form-section">
-                <h2>Member Login</h2>
-                <form id="login-form">
-                    <div class="form-group">
-                        <label for="login-email">Email</label>
-                        <input type="email" id="login-email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="login-password">Password</label>
-                        <div class="password-wrapper">
-                            <input type="password" id="login-password" required>
-                            <span id="toggle-password" class="eye-icon">👁️</span>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn primary">Login</button>
-                    <p style="text-align: center; margin-top: 15px;">
-                        <a href="#" id="link-to-forgot"
-                            style="color: var(--accent-secondary); text-decoration: none; font-size: 0.9rem;">Forgot
-                            Password?</a>
-                    </p>
-                    <div class="form-message"></div>
-                </form>
-            </section>
-
-            <!-- 3. Forgot Password Section -->
-            <section id="forgot-password-section" class="form-section">
-                <h2>Reset Password</h2>
-                <p>Enter your email to receive recovery instructions.</p>
-                <form id="forgot-form">
-                    <div class="form-group">
-                        <label for="forgot-email">Recovery Email</label>
-                        <input type="email" id="forgot-email" required>
-                    </div>
-                    <button type="submit" class="btn secondary">Send Recovery Link</button>
-                    <div class="form-message"></div>
-                </form>
-            </section>
-
-            <!-- 4. Contact Us Section -->
-            <section id="contact-section" class="form-section">
-                <h2>Contact Support</h2>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="contact-subject">Subject</label>
-                        <select id="contact-subject" required>
-                            <option value="">Select a topic...</option>
-                            <option value="general">General Inquiry</option>
-                            <option value="support">Technical Support</option>
-                            <option value="business">Business Proposal</option>
-                        </select>
-                        <div id="subject-hint" class="hint">Please select a subject</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-message">Message</label>
-                        <textarea id="contact-message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn primary">SendMessage</button>
-                    <div class="form-message"></div>
-                </form>
-            </section>
-
-            <!-- 5. Purchasing Section -->
-            <section id="purchasing-section" class="form-section">
-                <h2>Item Purchasing</h2>
-                <div class="product-preview" id="product-card">
-                    <div class="product-info">
-                        <h3>Premium Wireless Headphones</h3>
-                        <p class="price">$199.00</p>
+                    <div class="stat-card">
+                        <h3>100%</h3>
+                        <p>Commitment</p>
                     </div>
                 </div>
-                <form id="purchase-form">
-                    <div class="form-group">
-                        <label for="buy-quantity">Quantity</label>
-                        <input type="number" id="buy-quantity" min="1" max="10" value="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="buy-address">Shipping Address</label>
-                        <textarea id="buy-address" rows="3" required></textarea>
-                    </div>
-                    <div class="total-price">Total: <span id="total-display">$199.00</span></div>
-                    <button type="submit" class="btn accent">Place Order</button>
-                    <div class="form-message"></div>
-                </form>
-            </section>
+            </div>
+        </div>
+    </section>
 
-        </main>
-    </div>
+    <section id="projects" class="section">
+        <div class="container reveal">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <!-- Project 2 Card -->
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Interactive Forms Suite</h3>
+                        <p>Project 2 Web Programming</p>
+                        <p class="description">A comprehensive suite of 5 interactive forms featuring robust jQuery
+                            validation, dynamic event handling, and a tabbed SPA interface.</p>
+                        <a href="../Project2_WebProgramming/index.html" class="btn-secondary" target="_blank">Launch
+                            Project ↗</a>
+                    </div>
+                    <div class="card-bg-icon">📝</div>
+                </div>
 
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- Custom Script -->
+                <!-- Personal AI Agent Card (Bonus) -->
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Personal AI Agent</h3>
+                        <p>Gemini Powered</p>
+                        <p class="description">An intelligent chat interface powered by Google Gemini API, featuring
+                            persistent memory and markdown rendering.</p>
+                        <!-- Assuming the AI agent is in the parent directory's 'PersonalAIAgent' folder -->
+                        <a href="../PersonalAIAgent/index.html" class="btn-secondary" target="_blank">Launch Agent ↗</a>
+                    </div>
+                    <div class="card-bg-icon">🤖</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container reveal">
+            <h2>Let's Connect</h2>
+            <div class="contact-box">
+                <p>Have a project in mind? Let's build something amazing together.</p>
+                <a href="mailto:hello@example.com" class="btn-glow">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 My Portfolio. Built with creativity.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 
