@@ -1,0 +1,16 @@
+{
+  "name": "Personal AI Agent",
+  "short_name": "AI Agent",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#050510",
+  "theme_color": "#050510",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

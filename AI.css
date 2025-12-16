@@ -1,0 +1,433 @@
+:root {
+    --bg-color: #050510;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent-cyan: #00f3ff;
+    --accent-purple: #bc13fe;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --font-main: 'Orbitron', 'Segoe UI', sans-serif;
+    /* Futuristic font */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(188, 19, 254, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 243, 255, 0.1) 0%, transparent 40%);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Container */
+.interface-container {
+    display: flex;
+    width: 95vw;
+    height: 90vh;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Left Panel: Chat */
+.chat-section {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--glass-border);
+    position: relative;
+}
+
+.chat-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ai-status {
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-cyan);
+    animation: pulse 2s infinite;
+}
+
+.chat-history {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    animation: slideIn 0.3s ease-out;
+    position: relative;
+}
+
+.message.agent {
+    align-self: flex-start;
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-top-left-radius: 2px;
+    color: #e0ffff;
+}
+
+.message.user {
+    align-self: flex-end;
+    background: rgba(188, 19, 254, 0.2);
+    border: 1px solid rgba(188, 19, 254, 0.3);
+    border-bottom-right-radius: 2px;
+}
+
+.input-area {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
+}
+
+button {
+    background: linear-gradient(135deg, var(--accent-purple), #8a2be2);
+    border: none;
+    padding: 0 25px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(188, 19, 254, 0.4);
+}
+
+/* Right Panel: Memory Core */
+.memory-section {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+.core-visualization {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.core-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid var(--accent-cyan);
+    box-shadow: 0 0 20px var(--accent-cyan);
+}
+
+.c1 {
+    width: 100px;
+    height: 100px;
+    animation: spin 10s linear infinite;
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 20px var(--accent-purple);
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+
+.c2 {
+    width: 60px;
+    height: 60px;
+    animation: spin-rev 5s linear infinite;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.c3 {
+    width: 20px;
+    height: 20px;
+    background: white;
+    box-shadow: 0 0 30px white;
+    animation: breathe 3s ease-in-out infinite;
+}
+
+.memory-bank {
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.memory-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--accent-cyan);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    cursor: default;
+}
+
+.memory-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.memory-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.memory-val {
+    font-size: 1rem;
+    color: var(--accent-cyan);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes spin-rev {
+    from {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px white;
+        opacity: 0.8;
+    }
+
+    50% {
+        box-shadow: 0 0 40px var(--accent-cyan);
+        opacity: 1;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Markdown Styling for Agent Messages */
+.message.agent h1,
+.message.agent h2,
+.message.agent h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: var(--accent-cyan);
+    font-family: var(--font-main);
+}
+
+.message.agent p {
+    margin-bottom: 10px;
+}
+
+.message.agent pre {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid var(--glass-border);
+    margin: 10px 0;
+}
+
+.message.agent code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    color: #e0ffff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+.message.agent pre code {
+    background: transparent;
+    padding: 0;
+    color: #a5f3fc;
+}
+
+.message.agent ul,
+.message.agent ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.message.agent li {
+    margin-bottom: 5px;
+}
+
+.message.agent blockquote {
+    border-left: 3px solid var(--accent-purple);
+    margin: 10px 0;
+    padding-left: 15px;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.message.agent a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent-cyan);
+}
+
+.message.agent a:hover {
+    color: white;
+}
+
+/* Thinking Animation Status */
+.ai-status.thinking {
+    background-color: var(--accent-purple);
+    box-shadow: 0 0 15px var(--accent-purple);
+    animation: rapid-pulse 0.5s infinite alternate;
+}
+
+@keyframes rapid-pulse {
+    0% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Typing Indicator */
+.typing-indicator {
+    display: inline-flex;
+    gap: 5px;
+    padding: 5px 0;
+}
+
+.typing-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+}

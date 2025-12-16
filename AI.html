@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal AI Agent</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for futuristic look -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+
+<body>
+
+    <div class="interface-container">
+        <!-- Sidebar / Chat Area -->
+        <section class="chat-section">
+            <div class="chat-header">
+                <div class="ai-status"></div>
+                <h2 style="margin: 0; font-family: var(--font-main); letter-spacing: 2px;">CORE_AI_V1</h2>
+            </div>
+
+            <div class="chat-history" id="chat-history">
+                <!-- Messages will appear here -->
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Type a command (e.g., My name is...) ...">
+                <button id="send-btn">SEND</button>
+            </div>
+        </section>
+
+        <!-- Memory Visualization -->
+        <section class="memory-section">
+            <div class="core-visualization">
+                <div class="core-circle c1"></div>
+                <div class="core-circle c2"></div>
+                <div class="core-circle c3"></div>
+            </div>
+
+            <h3 style="font-family: var(--font-main); color: var(--accent-cyan); margin-bottom: 20px;">MEMORY BANKS</h3>
+
+            <div id="memory-bank" class="memory-bank">
+                <!-- Memory cards will be injected here -->
+            </div>
+
+            <div class="system-logs"
+                style="margin-top: auto; font-size: 0.7rem; color: var(--text-secondary); width: 100%;">
+                > System Operational<br>
+                > Local Storage: Connected<br>
+                > Neural Link: Active
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="agent.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+
+</html>
