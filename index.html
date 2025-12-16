@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+
+    <nav class="navbar">
+        <div class="logo">Our Portofolio</div>
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="../Project2_WebProgramming/index.html#login" target="_blank">Login</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Create. <span class="highlight">Innovate.</span> Inspire.</h1>
+            <p class="subtitle">We build interactive web experiences.</p>
+            <a href="#projects" class="btn-glow">View Our Work</a>
+
+        </div>
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container reveal">
+            <h2>About Us</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Hello! We're a passionate Full Stack Developer with a knack for building beautiful, responsive,
+                        and
+                        functional web applications.</p>
+                    <p>We specialize in modern JavaScript frameworks, clean UI/UX design, and creating seamless digital
+                        experiences.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h3>5+</h3>
+                        <p>Projects</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>100%</h3>
+                        <p>Commitment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container reveal">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <!-- Project 2 Card -->
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Interactive Forms Suite</h3>
+                        <p>Project 2 Web Programming</p>
+                        <p class="description">A comprehensive suite of 5 interactive forms featuring robust jQuery
+                            validation, dynamic event handling, and a tabbed SPA interface.</p>
+                        <a href="../Project2_WebProgramming/index.html" class="btn-secondary" target="_blank">Launch
+                            Project ↗</a>
+                    </div>
+                    <div class="card-bg-icon">📝</div>
+                </div>
+
+                <!-- Personal AI Agent Card (Bonus) -->
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Personal AI Agent</h3>
+                        <p>Gemini Powered</p>
+                        <p class="description">An intelligent chat interface powered by Google Gemini API, featuring
+                            persistent memory and markdown rendering.</p>
+                        <!-- Assuming the AI agent is in the parent directory's 'PersonalAIAgent' folder -->
+                        <a href="../PersonalAIAgent/index.html" class="btn-secondary" target="_blank">Launch Agent ↗</a>
+                    </div>
+                    <div class="card-bg-icon">🤖</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container reveal">
+            <h2>Let's Connect</h2>
+            <div class="contact-box">
+                <p>Have a project in mind? Let's build something amazing together.</p>
+                <a href="mailto:hello@example.com" class="btn-glow">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 My Portfolio. Built with creativity.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
